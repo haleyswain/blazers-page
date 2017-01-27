@@ -3,8 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Player } from '../player.model';
 import { PlayerService } from '../player.service';
-
-
+import { FirebaseObjectObservable } from 'angularfire2';
 
 
 @Component({
@@ -14,18 +13,16 @@ import { PlayerService } from '../player.service';
   providers: [PlayerService]
 })
 export class PlayerProfileComponent implements OnInit {
-  playerId: number;
-  playerToDisplay: Player;
-
+  playerId: string;
+  playerToDisplay;
 
   constructor(private route: ActivatedRoute, private location: Location, private playerService: PlayerService){ }
 
   ngOnInit() {
-    this.route.params.forEach((urlParameters) => {
-      this.playerId = parseInt(urlParameters['id']);
+    this.route.params.forEach((urlParametersArray) => {
+      this.playerId = urlParametersArray['id'];
     });
     this.playerToDisplay = this.playerService.getPlayerById(this.playerId);
-    console.log(this.playerToDisplay);
   }
 
 }

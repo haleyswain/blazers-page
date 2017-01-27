@@ -11,6 +11,17 @@ import { AboutComponent } from './about/about.component';
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
+import { masterFirebaseConfig } from './api-keys'
+import { AngularFireModule } from 'angularfire2';
+import { PipePositionPipe } from './pipe-position.pipe';
+
+
+export const firebaseConfig = {
+  apiKey: masterFirebaseConfig.apiKey,
+  authDomain: masterFirebaseConfig.authDomain,
+  databaseURL: masterFirebaseConfig.databaseURL,
+  storageBucket: masterFirebaseConfig.storageBucket
+};
 
 @NgModule({
   declarations: [
@@ -19,13 +30,15 @@ import { EditPlayerComponent } from './edit-player/edit-player.component';
     AboutComponent,
     PlayerProfileComponent,
     AdminComponent,
-    EditPlayerComponent
+    EditPlayerComponent,
+    PipePositionPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

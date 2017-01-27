@@ -1,5 +1,8 @@
 <h2>2017 Blazer Roster</h2>
-<div *ngFor = "let player of players">
-<h2>{{playertoDisplay.position}}</h2>
-<h3>{{playerToDisplay.hometown}}</h3>
+<p>player profile works</p>
+
+
+<div>
+  <h3>{{(playerToDisplay | async)?.name}}</h3>
+  <h4>{{(playerToDisplay | async)?.position}}</h4>
 </div>

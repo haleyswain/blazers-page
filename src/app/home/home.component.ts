@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Player } from '../player.model';
 import { Router } from '@angular/router';
 import { PlayerService } from '../player.service';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+
 
 
 
@@ -12,7 +14,9 @@ import { PlayerService } from '../player.service';
   providers: [PlayerService]
 })
 export class HomeComponent implements OnInit {
-  players: Player[];
+  players: FirebaseListObservable<any[]>;
+  filterByPosition: string = "allPositions"
+
 
   constructor(private router: Router, private playerService: PlayerService){}
 
@@ -20,7 +24,10 @@ export class HomeComponent implements OnInit {
     this.players = this.playerService.getPlayers();
   }
 
-  goToProfilePage(clickedPlayer: Player) {
-  this.router.navigate(['player-profile', clickedPlayer.id]);
+  goToProfilePage(clickedPlayer) {
+  this.router.navigate(['player-profile', clickedPlayer.$key]);
 };
+  onChange(optionFromMenu) {
+  this.filterByPosition = optionFromMenu;
+  }
 }

@@ -1,0 +1,20 @@
+{ "players": [{
+    "name": "Damian Lillard",
+    "hometown": "Utah",
+    "number": 11,
+    "position": "Guard",
+    "id": 1
+  }, {
+    "name": "Meyers Leonard",
+    "hometown": "Illinois",
+    "number": 0,
+    "position": "Forward",
+    "id": 2
+    }, {
+    "name": "Allen Crabbe",
+    "hometown": "California",
+    "number": 23,
+    "position": "Guard",
+    "id": 3
+      }]
+    }
