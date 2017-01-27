@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../player.model';
 import { Router } from '@angular/router';
+import { PlayerService } from '../player.service';
+
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [PlayerService]
 })
-export class HomeComponent {
-  players: Player[] = [
-    new Player("Meyers Leonard", "Illinios", 11, "Forward", 1),
-    new Player("Damian Lillard", "Utah", 0, "Guard", 2),
-    new Player("Allen Crabbe", "California", 23, "Guard", 3)
-  ];
+export class HomeComponent implements OnInit {
+  players: Player[];
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private playerService: PlayerService){}
 
   ngOnInit() {
+    this.players = this.playerService.getPlayers();
   }
 
   goToProfilePage(clickedPlayer: Player) {
