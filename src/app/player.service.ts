@@ -14,10 +14,21 @@ players: FirebaseListObservable<any[]>;
   getPlayers(){
   return this.players;
 }
-addPlayer(newPlayer: Player) {
+  addPlayer(newPlayer: Player) {
     this.players.push(newPlayer);
   }
-getPlayerById(playerId: string){
-  return this.angularFire.database.object('player-profile/' + playerId);
+  deletePlayer(localPlayerToDelete){
+   var playerEntryInFirebase = this.getPlayerById(localPlayerToDelete.$key);
+   playerEntryInFirebase.remove();
+ }
+  getPlayerById(playerId: string){
+    return this.angularFire.database.object('/player-profile/' + playerId);
       }
+  updatePlayer(localUpdatedPlayer){
+    var playerEntryInFirebase = this.getPlayerById(localUpdatedPlayer.$key);
+    playerEntryInFirebase.update({name: localUpdatedPlayer.name,
+                                position: localUpdatedPlayer.position,
+                                hometown: localUpdatedPlayer.hometown,
+                                number: localUpdatedPlayer.number});
+  }
     }

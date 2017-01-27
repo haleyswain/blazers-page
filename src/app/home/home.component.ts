@@ -17,7 +17,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 export class HomeComponent implements OnInit {
   players: FirebaseListObservable<any[]>;
   currentRoute: string = this.router.url;
-  filterByPosition: string = "allPositions"
+  filterByPosition: string = "allPositions";
 
 
   constructor(private router: Router, private playerService: PlayerService){}

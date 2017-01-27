@@ -1,1 +1,21 @@
-<a routerLink="home">Link Text</a>
+<h4>Edit Player</h4>
+
+<label>New Player Name:</label>
+<input class="form-control" [(ngModel)]="selectedPlayer.name">
+<br>
+
+<label>New Player Hometown:</label>
+<input class="form-control" [(ngModel)]="selectedPlayer.hometown">
+<br>
+
+<label>New Player Position:</label>
+<input class="form-control" [(ngModel)]="selectedPlayer.position">
+<br>
+
+<label>New Player Jersey Number:</label>
+<input class="form-control" [(ngModel)]="selectedPlayer.number">
+<br>
+<button (click)="beginUpdatingPlayer(selectedPlayer)">Update</button>
+<br>
+<br>
+<button (click)="beginDeletingPlayer(selectedPlayer)">Delete</button>

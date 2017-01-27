@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PlayerService } from '../player.service';
+
 
 @Component({
   selector: 'app-edit-player',
   templateUrl: './edit-player.component.html',
-  styleUrls: ['./edit-player.component.css']
+  styleUrls: ['./edit-player.component.css'],
+  providers: [PlayerService]
 })
 export class EditPlayerComponent implements OnInit {
-
-  constructor() { }
+  @Input() selectedPlayer;
+  constructor(private playerService: PlayerService) { }
 
   ngOnInit() {
   }
+  beginUpdatingPlayer(playerToUpdate){
+    this.playerService.updatePlayer(playerToUpdate);
+  }
+  beginDeletingPlayer(playerToDelete){
+   if(confirm("Are you sure you want to delete this player from the team?")){
+     this.playerService.deletePlayer(playerToDelete);
+   }
+ }
+
 
 }

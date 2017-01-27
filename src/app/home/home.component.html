@@ -8,7 +8,11 @@
 
 <div *ngFor="let player of players | async | pipePosition:filterByPosition">
   <div class="panel-body">
-  <h3 (click)="goToProfilePage(player)"><em>{{player.name}}</em> {{player.position}}</h3>
-  <h3> {{player.$key}}</h3>
-  </div>
+  <h3 (click)="goToProfilePage(player)"><em>{{player.name}}</em> {{player.position}} <br> {{player.hometown}}</h3>
+      <div *ngIf="currentRoute === '/admin'">
+        {{player.number}}
+        <hr>
+        <app-edit-player [selectedPlayer]="player"></app-edit-player>
+      </div>
+    </div>
   </div>
