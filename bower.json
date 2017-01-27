@@ -1,0 +1,17 @@
+{
+  "name": "Blazers",
+  "description": "Blazers Home Page",
+  "main": "",
+  "license": "MIT",
+  "homepage": "https://github.com/haleyswain/dictionary",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
