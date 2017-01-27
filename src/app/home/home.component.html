@@ -8,6 +8,7 @@
 
 <div *ngFor="let player of players | async | pipePosition:filterByPosition">
   <div class="panel-body">
-  <h3 (click)="goToProfilePage(player)"><em>{{player.name}}</em> by {{player.position}}</h3>
+  <h3 (click)="goToProfilePage(player)"><em>{{player.name}}</em> {{player.position}}</h3>
+  <h3> {{player.$key}}</h3>
   </div>
   </div>

@@ -13,8 +13,10 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
   styleUrls: ['./home.component.css'],
   providers: [PlayerService]
 })
+
 export class HomeComponent implements OnInit {
   players: FirebaseListObservable<any[]>;
+  currentRoute: string = this.router.url;
   filterByPosition: string = "allPositions"
 
 
