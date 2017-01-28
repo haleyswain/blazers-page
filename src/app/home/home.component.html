@@ -1,15 +1,18 @@
 <h2>2017 Blazer Roster</h2>
 <br>
 <select (change)="onChange($event.target.value)">
-   <option value="allPositions">All Positions</option>
+   <option value="allPositions" selected="selected">All Positions</option>
    <option value="guard">Guard</option>
-   <option value="forward" selected="selected">Forward</option>
+   <option value="forward">Forward</option>
  </select>
 
 <div *ngFor="let player of players | async | pipePosition:filterByPosition">
   <div class="panel-body">
-  <h3 (click)="goToProfilePage(player)"><em>{{player.name}}</em> {{player.position}} <br> {{player.hometown}}</h3>
+  <h3 (click)="goToProfilePage(player)">
+    <em>{{player.name}}</em> {{player.position}}</h3>
+     <br>
       <div *ngIf="currentRoute === '/admin'">
+        {{player.hometown}}
         {{player.number}}
         <hr>
         <app-edit-player [selectedPlayer]="player"></app-edit-player>

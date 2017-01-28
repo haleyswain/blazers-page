@@ -31,4 +31,6 @@ players: FirebaseListObservable<any[]>;
                                 hometown: localUpdatedPlayer.hometown,
                                 number: localUpdatedPlayer.number});
   }
+
+
     }
