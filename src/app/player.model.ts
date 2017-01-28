@@ -1,4 +1,4 @@
 export class Player {
   public $key: string;
-  constructor (public name: string, public hometown: string, public number: number, public position: string) { }
+  constructor (public name: string, public position: string, public number: number, public hometown: string) { }
 }

@@ -2,8 +2,8 @@
 <br>
 <select (change)="onChange($event.target.value)">
    <option value="allPositions" selected="selected">All Positions</option>
-   <option value="guard">Guard</option>
-   <option value="forward">Forward</option>
+   <option value="Guard">Guard</option>
+   <option value="Forward">Forward</option>
  </select>
 
 <div *ngFor="let player of players | async | pipePosition:filterByPosition">

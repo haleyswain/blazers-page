@@ -9,16 +9,16 @@ export class PipePositionPipe implements PipeTransform {
 
   transform(input: Player[], desiredPosition) {
    var output: Player[] = [];
-   if(desiredPosition === "guard") {
+   if(desiredPosition === "Guard") {
      for (var i = 0; i < input.length; i++) {
-       if (input[i].position === "guard" ) {
+       if (input[i].position === "Guard" ) {
          output.push(input[i]);
        }
      }
      return output;
-   } else if (desiredPosition === "forward") {
+   } else if (desiredPosition === "Forward") {
      for (var i = 0; i < input.length; i++) {
-       if (input[i].position === "forward") {
+       if (input[i].position === "Forward") {
          output.push(input[i]);
        }
      }

@@ -22,7 +22,7 @@ players: FirebaseListObservable<any[]>;
    playerEntryInFirebase.remove();
  }
   getPlayerById(playerId: string){
-    return this.angularFire.database.object('/player-profile/' + playerId);
+    return this.angularFire.database.object('/players/' + playerId);
       }
   updatePlayer(localUpdatedPlayer){
     var playerEntryInFirebase = this.getPlayerById(localUpdatedPlayer.$key);
